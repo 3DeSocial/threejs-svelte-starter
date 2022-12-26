@@ -14,4 +14,12 @@
 	<meta name="description" content="Three.js example app built with Svelte" />
 </svelte:head>
 
-<canvas bind:this={el} />
+<div class="loader-ctr"></div>
+<div bind:this={el} class="space-ctr" id="space-ctr">
+	<div style="display:none;" class="statusbar"></div>
+
+		<div id="hud-content">
+			<div id="hud-text"></div>
+
+		</div>
+</div>

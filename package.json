@@ -27,7 +27,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"three": "^0.144.0"
+		"d3d": "3desocial/D3D.js#main"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",

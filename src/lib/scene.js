@@ -1,31 +1,53 @@
-import * as THREE from 'three';
+import * as D3D from 'd3d';
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-let renderer;
-scene.add(cube);
-camera.position.z = 5;
+  const sceneryName = 'amphitheater';
 
-const animate = () => {
-	requestAnimationFrame(animate);
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-	renderer.render(scene, camera);
-};
+	const sceneryOptions = {
+		'amphitheater':{
+		hasCircleLayout: true,
+		radius: 20,
+		sceneryPath: '/models/scenery/vr_art_gallery_3_baked.glb',
+		sceneScale: 1.5,
+		playerStartPos: { x: -0, y: 2 ,z: 0 },
+		}
+	}
 
-const resize = () => {
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-};
+  const config = {
+    walkSpeed: 5,
+    defaultLoader: 'gltf',
+    firstPerson: true,    
+   // imageProxyUrl: PROXYURL,
+    ctrClass: 'space-ctr', // Attribute of div containing post and any additionl html
+    linkText: 'View in 3D',
+    linkCtrCls: 'nft-viewer', // container for links such as view in 3d, view in vr
+    modelsRoute: 'https://desodata.azureedge.net', // Back end route to load models    
+    nftsRoute: 'https://backend.nftz.zone/api/post/get3DScene',
+    previewCtrCls: 'container', //container element in which to create the preview
+    skyboxes: true,
+    skyboxPath: 'https://bitcloutweb.azureedge.net/public/3d/images/skyboxes',
+    sceneryPath: 'https://bitcloutweb.azureedge.net/public/3d/models/large_round_gallery_room/scene.gltf',
+    scaleModelToHeight:2,
+    scaleModelToWidth: 2,
+    scaleModelToDepth: 2,   
+    playerStartPos: {x:0,y:3,z:0},  // location in the environment where the player will appear
+    avatarSize: {width: 1, height:1, depth:1}, // Max dimensions of avatar
+    vrType:'walking', // default to walking unless vrcontrols=flying is in url params
+    sceneryOptions: sceneryOptions[sceneryName],
+   
+    //Pass Blockchain API functions
+    chainAPI: {
+      fetchPost: function(params){
+      },
+      fetchPostDetail: function(params){
+        return fetch('https://backend.nftz.zone/api/post/getnft?hash='+params.postHashHex );
+      }
+    }
+  }; 
 
 export const createScene = (el) => {
-	renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el });
-	resize();
-	animate();
+    config.el = el;
+  	let spaceViewer = new D3D.SpaceViewer(config);	
+    let params = {};
+	  spaceViewer.initSpace(params);
 };
 
-window.addEventListener('resize', resize);

@@ -1,0 +1,390 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, Arial ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#space-ctr {
+  min-width: 456px;
+  width: 100%;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  font-family: -apple-system, BlinkMacSystemFont, Arial ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+padding: 0;
+float: left;    
+}
+
+.loader-ctr{
+  top: 60px;
+  bottom: 0;
+  width: 100%;
+  min-width: 100%;
+  background: #000;
+  color: #fff;
+  float: left;
+  position: absolute;
+
+}
+
+#space-ctr #help-icon.d3d-btn-top   {
+  left: 0;
+top: 3px;
+padding: 0;
+display: inline-block !important;
+}
+#help-icon{
+  top: 5px !important;
+}
+#help-icon img {
+  height: 27px;
+  width: 27px;
+  border-radius: 3px;
+}
+
+#space-ctr #select-preview {
+  left: 7em;
+  top: 5px;
+  padding: 0;
+}
+
+#select-preview img {
+height: 27px;
+border-radius: 3px;
+}
+
+#nft-overlay-holder {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  display: none;
+  }
+#nft-overlay.pos {
+  float: left;
+  width: 20em;
+}
+#nft-overlay-holder {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  background: #333;
+    color: #fff;
+    font-size: 14px;
+    display: none;
+}
+#nft-overlay #animation-select {
+  width:65px;
+  margin-left:5px
+}
+#nft-overlay select {
+  margin:0 10px;
+  font-size:.8em;
+  padding:.2em
+}
+#nft-overlay input{
+  margin:0
+}
+#nft-overlay label {
+  cursor:pointer;
+  font-size:.8em;
+  padding-top: 0.5em;
+  text-align:center
+}
+
+button#VRButton {
+  cursor: pointer;
+  padding: 1em;
+  margin: 0 0 .5em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 4em;
+  left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+#hud-content {
+  z-index: 100;
+  position: absolute;
+  width: 60%;
+  height: 300px;
+  padding: 10px;
+  display: none;
+  color: #FFF;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.5em;
+  font-size: 16px;
+  background-color: #000;
+  opacity: 0.8;
+
+}
+#hud-text h4 {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+#hud-text {
+        display: flex;
+    flex-direction: row;
+  overflow-y: auto;
+}
+#hud-text dd,
+#hud-text dt{
+  margin: 0;
+  margin-left: 0;  
+  float: left;
+}
+#hud-text dt {
+  clear: left;
+  width: 9em;
+}
+#hud-text a.nftsUrl {
+  display: block;
+}
+.flex-left {
+  flex: 1;
+}
+
+.flex-right {
+    width: 12em;
+}
+
+#hud-content .buttons{
+  position: absolute;
+  bottom: 0em;
+  right: 0.5em;
+  display: block;
+}
+#hud-content dl{
+  display: inline-block;
+
+}
+#hud-content p{
+  display: inline-block;
+  overflow-y: auto;
+  max-height: 15em;
+}
+
+@media (hover:none), (hover:on-demand){ 
+  #hud-content {
+    width: 90%;
+  }
+}
+#hud-content .nft-button-grad{
+  font-size: .9em;
+  border-radius: 4px;
+  border: none;
+  color: #e7f0ef;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  background: #346562;
+  width: auto;
+}
+.loader-ctr .inner {
+  margin-top: 30px;
+  text-align: center;
+}
+.loader-ctr .inner .social-logo img {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  max-width: 200px;
+  margin: 0 auto;
+  max-height: 100px;
+}
+.loader-ctr .inner .devby {
+  font-size: 12px;
+}
+#hud-content h3{
+  text-transform: capitalize;
+}
+.d3d-btn {
+  padding: 0.5em;
+  border: solid #333 1px;
+  background-color: #eee;
+  margin: 0.5em;
+  text-decoration: none;
+  color: #000
+}
+form.nft-3d-overlay {
+  display: inline-block;
+  width: 100%;
+
+}
+.nft-3d-overlay dl {
+  margin: 0.5em 0em 0.25em 0.5em;
+}
+.nft-3d-overlay dl dd,
+.nft-3d-overlay dl dt {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+#VRButton {
+  cursor: pointer;
+  padding: 0.25em 0.4em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 0;
+  left: 4em;
+}
+#view-full {
+  cursor: pointer;
+  padding: 0.25em 0.4em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 0;
+  display: none;
+  left: 0;  
+}
+#give-diamond{
+  cursor: pointer;
+  padding: 0.17em 0em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 0;
+  right: 16em;
+  display: none;
+  text-align: center;
+  width: 4em;
+}
+#give-heart{
+  cursor: pointer;
+  padding: 0.17em 0em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 0;
+  right: 11em;
+  display: none;
+  width: 4em;
+  text-align: center;
+  color: #F00;
+}
+
+#view-detail{
+  cursor: pointer;
+  padding: 0.26em 0em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  bottom: 0;
+  right: 6em;
+  display: none;
+  width: 4em;
+  text-align: center;
+}
+#space-ctr .toolbar{
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  height: 42px;
+  left: 0;
+  right: 0;
+}
+
+.d3d-btn.disabled{
+  opacity: 0.5;
+}
+
+#space-ctr .statusbar{
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  height: 2.5em;
+  left: 0;
+  right: 0;
+}
+#space-ctr .d3d-btn-top {
+    cursor: pointer;
+  padding: 0.17em 0em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  letter-spacing: .5px;
+  position: absolute;
+  top: 0.25em;
+  display: none;
+  width: 4em;
+  text-align: center;
+}
+#diamond-count.d3d-btn-top{
+  color: #f00;
+  right: 12em;
+  color: #fff;
+}
+#heart.d3d-btn-top{
+  color: #f00;
+  right: 15em;
+}
+#confirm.d3d-btn-top{
+  right: 3.5em;
+  width: 10em;
+}
+#trx-confirm {
+  padding: 0.25em 0.5em;
+}
+
+@media (min-width: 640px) {
+  #diamond-count.d3d-btn-top{
+    color: #f00;
+    right: 8em;
+    color: #fff;
+  }
+  #heart.d3d-btn-top{
+    color: #f00;
+    right: 11em;
+  }
+  #confirm.d3d-btn-top{
+    right: 0;
+    width: 10em;
+  }
+
+  #give-diamond{
+  
+    right: 10em;
+  }
+  #give-heart{
+    right: 5em;
+  }
+
+  #view-detail{
+    right: 0em;
+  }
+}
