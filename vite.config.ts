@@ -7,11 +7,13 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [sveltekit()],
-	esbuildOptions: {
+	optimizeDeps: {
+		exclude:['path','url','fs','stream'],
+		//include:['deso-protocol'],
+		esbuildOptions: {
 			// Node.js global to browser globalThis
 			define: {
-				global: 'globalThis',
-				navigator: false
+				global: 'globalThis'
 			},
 			plugins: [
 				NodeGlobalsPolyfillPlugin({
@@ -20,7 +22,18 @@ const config: UserConfig = {
 				}),
 				NodeModulesPolyfillPlugin()
 			]
+		},
+		
+	},
+	build: {
+		rollupOptions: {
+			plugins: [
+				// Enable rollup polyfills plugin
+				// used during production bundling
+				rollupNodePolyFill()
+			]
 		}
+	}
 };
 
 export default config;

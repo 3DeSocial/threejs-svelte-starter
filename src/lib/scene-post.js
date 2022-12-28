@@ -1,5 +1,5 @@
-import Deso from 'deso-protocol'; 
-import * as D3D from 'd3d';
+import { Deso } from 'deso-protocol'; 
+import {SpaceViewer} from 'd3d';
  
 
   const sceneryName = 'amphitheater';
@@ -48,14 +48,17 @@ import * as D3D from 'd3d';
   };
 
 export const createScene = (el,data) => {
+
     console.log('got postHash', data.postHash);
-  getPost(data.postHash).then((post)=>{
+    config.el = el;    
+    let spaceViewer = new SpaceViewer(config);  
+
+    getPost(data.postHash).then((post)=>{
       console.log(post);
-    });     
-    config.el = el;
-  	let spaceViewer = new D3D.SpaceViewer(config);	
-    let params = {};
-	  spaceViewer.initSpace(params)
+      let params = {post: post.PostFound[0]};
+      spaceViewer.initSpace(params);
+    })
+
 
   
 };
