@@ -27,7 +27,15 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"d3d": "3desocial/D3D.js#main"
+		"@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+		"@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+		"d3d": "3desocial/D3D.js#main",
+		"deso-protocol": "^0.7.25",
+		"filepond": "^4.30.4",
+		"filepond-plugin-image-exif-orientation": "^1.0.11",
+		"filepond-plugin-image-preview": "^4.6.11",
+		"rollup-plugin-node-polyfills": "^0.2.1",
+		"svelte-filepond": "^0.2.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
