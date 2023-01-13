@@ -19,7 +19,7 @@ import * as D3D from 'd3d';
 
 
   //  avatarPath:  '/models/avatars/ghostHQ.fbx',
-  //  avatarPath:  'https://desodata.azureedge.net/unzipped/afa02ebe8c02c6f8f22ca46031e048b69a6b2add303ffae538bb95bf6adb6db7/vrm/normal/European%2520Male1_High%2520Volume%2520Brushed%2520Up_Deso%2520Casual.vrm',
+    avatarPath:  'https://desodata.azureedge.net/unzipped/afa02ebe8c02c6f8f22ca46031e048b69a6b2add303ffae538bb95bf6adb6db7/vrm/normal/European%2520Male1_High%2520Volume%2520Brushed%2520Up_Deso%2520Casual.vrm',
     walkSpeed: 5,
     defaultLoader: 'gltf',
     firstPerson: false,    
