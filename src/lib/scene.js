@@ -1,25 +1,41 @@
 import * as D3D from 'd3d';
 
-  const sceneryName = 'amphitheater';
+const getParameterByName =(name) =>{
+    let url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
+let avatar = getParameterByName('avatar');
+console.log('avatar selected: ',avatar);
+
+  const sceneryName = 'amphitheater';
+  const avatars = {'Chubby':'ChubbyRigged.fbx','Buffed':'BuffedRigged.fbx','Female':'FemaleRigged.fbx','Male':'MaleRigged.fbx'};
 	const sceneryOptions = {
 		'amphitheater':{
 		hasCircleLayout: true,
 		radius: 20,
 		sceneryPath: '/models/scenery/vr_art_gallery_9_two_octahedra_baked.glb',
 		sceneScale: 1.5,
-		playerStartPos: { x: -4, y: 4 ,z: -5 },
+		playerStartPos: { x: 4, y: 1 ,z: 5 },
 		}
 	}
 
   const config = {
   // avatarPath:  '/models/avatars/vroid-anime-girl.vrm',
     //avatarPath:  '/models/avatars/vroid-anime-girl2.vrm',
-    avatarPath:  '/models/avatars/vroid-anime-guy.vrm',
+
 
 
   //  avatarPath:  '/models/avatars/ghostHQ.fbx',
-    avatarPath:  'https://desodata.azureedge.net/unzipped/afa02ebe8c02c6f8f22ca46031e048b69a6b2add303ffae538bb95bf6adb6db7/vrm/normal/European%2520Male1_High%2520Volume%2520Brushed%2520Up_Deso%2520Casual.vrm',
+//    avatarPath:  'https://desodata.azureedge.net/unzipped/afa02ebe8c02c6f8f22ca46031e048b69a6b2add303ffae538bb95bf6adb6db7/vrm/normal/European%2520Male1_High%2520Volume%2520Brushed%2520Up_Deso%2520Casual.vrm',
+    avatarPath:  '/models/avatars/',
+    avatars: avatars,
+    avatar: avatar, //default avatar
     walkSpeed: 5,
     defaultLoader: 'gltf',
     firstPerson: false,    
@@ -36,8 +52,8 @@ import * as D3D from 'd3d';
     scaleModelToHeight:2,
     scaleModelToWidth: 2,
     scaleModelToDepth: 2,   
-    playerStartPos: { x: -4, y: 4 ,z: -5 },  // location in the environment where the player will appear
-    avatarSize: {width: 1, height:1, depth:1}, // Max dimensions of avatar
+    playerStartPos: { x: -4, y: 2 ,z: -5 },  // location in the environment where the player will appear
+    avatarSize: {width: 1, height:2, depth:2}, // Max dimensions of avatar
     vrType:'walking', // default to walking unless vrcontrols=flying is in url params
     sceneryOptions: sceneryOptions[sceneryName],
    
