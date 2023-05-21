@@ -10,14 +10,14 @@
 </script>
 
 <svelte:head>
-	<title>Three.js Sveltekit</title>
-	<meta name="description" content="Three.js example app built with Svelte" />
+	<title>Flyposter</title>
+	<meta name="description" content="DeSo Post Explorer" />
 </svelte:head>
 
 <div class="loader-ctr"></div>
-<div bind:this={el} class="space-ctr" id="space-ctr">
+<div class="space-ctr" id="space-ctr">
 	<div style="display:none;" class="statusbar"></div>
-
+	<canvas v bind:this={el} id="app-canvas"></canvas>
 		<div id="hud-content">
 			<div id="hud-text"></div>
 
