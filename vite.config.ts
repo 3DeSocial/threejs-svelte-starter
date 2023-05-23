@@ -2,6 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
 import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
+import crossOriginIsolation from 'vite-plugin-cross-origin-isolation';
 
 import type { UserConfig } from 'vite';
 
@@ -30,7 +31,8 @@ const config: UserConfig = {
 			plugins: [
 				// Enable rollup polyfills plugin
 				// used during production bundling
-				rollupNodePolyFill()
+				rollupNodePolyFill(),
+				crossOriginIsolation()
 			]
 		}
 	}
