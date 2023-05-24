@@ -6,24 +6,30 @@
   let height = window.innerHeight;
 
 	let el;
+	let count = 100;
 
-	onMount (() => {
-	
-		console.log('width: ',width, 'heigthL',height);
-		console.log(el.width);
-		createScene(el, width, height);
+	onMount ((count) => {
+		//const audioElement = document.getElementById('audioElement');
+		//audioElement.play();
+		createScene(el, width, height, count);
 	});
-	
+	let audioSource = '/melodic-techno-03-extended-version-moogify-9867.mp3';
 
+
+	
 	
 </script>
-
 <svelte:head>
 	<title>Flyposter</title>
-	<meta name="description" content="DeSo Post Explorer" />
+	<meta name="description" content="DeSo Post Discovery" />
 </svelte:head>
 
-<div class="loader-ctr"></div>
+<div class="loader-ctr" style="text-align: center;">
+	<img style="max-height: 140px; margin: 0 auto;" src="/3desocial.gif"/>
+	<h1>Please Wait...</h1>
+	<p>Loading latest posts.</p>
+</div>
+
 <div class="space-ctr" id="space-ctr">
 	<div style="display:none;" class="statusbar"></div>
 	<canvas v bind:this={el} id="app-canvas" style="width:100%; height: 100%;"></canvas>

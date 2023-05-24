@@ -1,12 +1,12 @@
-import { getUsersStateless, getPostsStateless } from 'deso-protocol';
+import { getUsersStateless, getPostsStateless, buildProfilePictureUrl } from 'deso-protocol';
 
 let workers =[];
 const workerURL = new URL('./workers/canvasWorker.js', import.meta.url);
 
-export const createScene = async (el, width,height) => {
+export const createScene = async (el, width,height, count) => {
 
-    let images = await getPostImages();
-    console.log('images: ',images);
+
+    let images = await getPostImages(count);
     let canvasWorker = new Worker(workerURL, { type: "module" });
     const offscreen = el.transferControlToOffscreen();
 
@@ -51,17 +51,20 @@ export const createScene = async (el, width,height) => {
   });*/
 }
 
-const getPostImages = async()=>{
+const getPostImages = async(count)=>{
   let images = [];
-  let posts = await getPosts();
+  let posts = await getPosts(count);
+  count = posts.length;
   posts.forEach(post => {
-    if(post.ImageURLs!==null){
+    if(post.ImageURLs!==null&&(post.ProfileEntryResponse)){
       let imgData = {url:post.ImageURLs[0],
                     description: post.Body,
                     user:post.ProfileEntryResponse?.Username,
                     userDesc: post.ProfileEntryResponse?.Description,
-                    userPk: post.ProfileEntryResponse?.PublicKeyBase58Check
+                    userPk: post.ProfileEntryResponse.PublicKeyBase58Check,
+                    userProfileImgUrl: buildProfilePictureUrl(post.ProfileEntryResponse.PublicKeyBase58Check,{nodeURI:'https://node.deso.org'}) 
       };
+      count--;
       images.push(imgData);
     }
     
@@ -69,7 +72,7 @@ const getPostImages = async()=>{
   return images;
 
 }
-const getPosts = async ()=>{
-  let res = await getPostsStateless({NumToFetch: 200, MediaRequired: true});
+const getPosts = async (count)=>{
+  let res = await getPostsStateless({NumToFetch: count, MediaRequired: true});
   return res.PostsFound;
 }
